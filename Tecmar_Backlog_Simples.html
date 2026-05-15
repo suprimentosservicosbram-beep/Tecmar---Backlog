@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecmar — Backlog Sem PO</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6f9;color:#1e2d3d;font-size:14px}
+.header{background:#0d1f33;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo{width:36px;height:36px;background:#1e88e5;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
+.title{color:#fff;font-size:17px;font-weight:600}
+.subtitle{color:rgba(255,255,255,0.45);font-size:12px;margin-top:1px}
+.date-badge{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.15);padding:5px 14px;border-radius:20px;font-size:12px}
+.main{max-width:1100px;margin:0 auto;padding:28px 24px}
+.section-label{font-size:11px;font-weight:600;color:#8a9ab0;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px}
+
+.block{background:#fff;border-radius:12px;border:0.5px solid rgba(0,0,0,0.08);margin-bottom:20px;overflow:hidden}
+.block-header{padding:14px 20px;border-bottom:0.5px solid rgba(0,0,0,0.06);display:flex;align-items:center;gap:8px}
+.block-header i{font-size:17px}
+.block-title{font-size:14px;font-weight:600;color:#1e2d3d}
+.block-body{padding:20px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.metric{background:#fff;border-radius:10px;border:0.5px solid rgba(0,0,0,0.08);padding:16px 18px}
+.metric-label{font-size:11px;color:#8a9ab0;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.metric-val{font-size:26px;font-weight:700;line-height:1}
+.metric-note{font-size:11px;color:#8a9ab0;margin-top:5px}
+
+.arrow-block{display:flex;align-items:center;gap:16px;background:#fff;border-radius:12px;border:0.5px solid rgba(0,0,0,0.08);padding:20px 24px;margin-bottom:20px}
+.ab-side{display:flex;flex-direction:column;gap:4px;min-width:120px}
+.ab-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:#8a9ab0}
+.ab-num{font-size:32px;font-weight:700;line-height:1}
+.ab-sub{font-size:12px;color:#8a9ab0}
+.ab-arrow{font-size:28px;color:#cdd5df;flex-shrink:0}
+.ab-result{margin-left:auto;text-align:right}
+.ab-change{font-size:22px;font-weight:700}
+.ab-change-sub{font-size:12px;color:#8a9ab0;margin-top:3px}
+
+.green{color:#27ae60}
+.red{color:#e53935}
+.blue{color:#1e88e5}
+.amber{color:#f59e0b}
+
+.chart-wrap{position:relative}
+
+.item-list{display:flex;flex-direction:column;gap:0}
+.item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid rgba(0,0,0,0.06)}
+.item:last-child{border-bottom:none}
+.item-left{display:flex;flex-direction:column;gap:2px}
+.item-emb{font-weight:600;font-size:13px;color:#1e2d3d}
+.item-prop{font-size:11px;color:#8a9ab0}
+.item-val{font-weight:700;font-size:13px}
+
+.pill{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:0.2px}
+.pill-new{background:#e8f5e9;color:#2e7d32}
+.pill-out{background:#fce4e4;color:#b71c1c}
+.pill-keep{background:#f0f4f8;color:#546e7a}
+
+.bar-label-row{display:flex;justify-content:space-between;font-size:11px;color:#8a9ab0;margin-bottom:4px}
+.bar-track{height:8px;background:#f0f4f8;border-radius:4px;overflow:hidden;margin-bottom:12px}
+.bar-fill{height:100%;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo"><i class="ti ti-ship"></i></div>
+    <div>
+      <div class="title">Tecmar — Backlog Sem PO · Força Tarefa</div>
+      <div class="subtitle">Processos sem numeração de Fluig (requisição)</div>
+    </div>
+  </div>
+  <div class="date-badge"><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;margin-right:5px"></i>Semana 12–16 Mai 2026 · Rev 1</div>
+</div>
+
+<div class="main">
+
+  <!-- RESUMO GERAL -->
+  <div class="section-label">Resumo geral — semana anterior vs semana atual</div>
+  <div class="metric-row">
+    <div class="metric">
+      <div class="metric-label">Total anterior</div>
+      <div class="metric-val">88</div>
+      <div class="metric-note">Mnt 32 + Ops 56</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Total atual (Rev 1)</div>
+      <div class="metric-val green">45</div>
+      <div class="metric-note">Mnt 28 + Ops 17</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Processos resolvidos</div>
+      <div class="metric-val green">43</div>
+      <div class="metric-note">redução de 49%</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Novos processos</div>
+      <div class="metric-val amber">5</div>
+      <div class="metric-note">todos em Operações</div>
+    </div>
+  </div>
+
+  <!-- CHART GERAL -->
+  <div class="block" style="margin-bottom:20px;">
+    <div class="block-header" style="color:#1e88e5;"><i class="ti ti-chart-bar" aria-hidden="true"></i><span class="block-title">Visão geral — processos abertos por área</span></div>
+    <div class="block-body">
+      <div style="display:flex;gap:16px;margin-bottom:12px;font-size:12px;color:#546e7a;">
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#3a5278;display:inline-block"></span>Sem. Anterior</span>
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#1e88e5;display:inline-block"></span>Semana Atual (Rev 1)</span>
+      </div>
+      <div class="chart-wrap" style="height:200px;">
+        <canvas id="chart-geral" role="img" aria-label="Comparativo de processos abertos: Manutenção foi de 32 para 28, Operações foi de 56 para 17">Manutenção: 32→28. Operações: 56→17.</canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANUTENÇÃO -->
+  <div class="section-label" style="margin-top:28px;">Manutenção — evolução detalhada</div>
+
+  <div class="arrow-block">
+    <div class="ab-side">
+      <div class="ab-label">Sem. Anterior</div>
+      <div class="ab-num" style="color:#3a5278;">32</div>
+      <div class="ab-sub">R$ 441.580</div>
+    </div>
+    <div class="ab-arrow">→</div>
+    <div class="ab-side">
+      <div class="ab-label">Rev 1 — Atual</div>
+      <div class="ab-num blue">28</div>
+      <div class="ab-sub">R$ 312.780</div>
+    </div>
+    <div class="ab-result">
+      <div class="ab-change green">▼ 4 processos</div>
+      <div class="ab-change-sub">R$ 128.800 regularizados</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="block">
+      <div class="block-header" style="color:#e53935;"><i class="ti ti-circle-minus" aria-hidden="true"></i><span class="block-title">4 processos resolvidos esta semana</span></div>
+      <div class="block-body">
+        <div class="item-list">
+          <div class="item">
+            <div class="item-left"><span class="item-emb">JACK EDWARDS</span><span class="item-prop">BJE.017.2026 · 25/01/2026</span></div>
+            <div class="item-val red">R$ 42.525</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">JACK EDWARDS</span><span class="item-prop">BJE.014.2025 · 17/11/2025</span></div>
+            <div class="item-val red">R$ 3.980</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">SANTOS SOLUTION</span><span class="item-prop">SSLT.023.2025 · 08/07/2025</span></div>
+            <div class="item-val red">R$ 23.040</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">SANTOS SUPPORTER</span><span class="item-prop">BSSP.014.2023 · 12/05/2023</span></div>
+            <div class="item-val red">R$ 1.233</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px solid rgba(0,0,0,0.06);font-size:12px;color:#8a9ab0;">Total regularizado: <strong class="green">R$ 70.778</strong></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-header" style="color:#1e88e5;"><i class="ti ti-chart-pie" aria-hidden="true"></i><span class="block-title">Distribuição por tipo de pendência</span></div>
+      <div class="block-body">
+        <div class="bar-label-row"><span>PO Complementar</span><span>18 · 64%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:64%;background:#1e88e5;"></div></div>
+        <div class="bar-label-row"><span>Cobrar PO (antigos)</span><span>7 · 25%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%;background:#f59e0b;"></div></div>
+        <div class="bar-label-row"><span>Regularização CNPJ</span><span>1 · 4%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:4%;background:#7b61ff;"></div></div>
+        <div class="bar-label-row"><span>Alinhar Coordenador</span><span>1 · 4%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:4%;background:#e53935;"></div></div>
+        <div class="bar-label-row"><span>Outros</span><span>1 · 4%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:4%;background:#8a9ab0;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART MNT -->
+  <div class="block" style="margin-bottom:28px;">
+    <div class="block-header" style="color:#1e88e5;"><i class="ti ti-chart-bar" aria-hidden="true"></i><span class="block-title">Manutenção — processos por embarcação (Rev 1)</span></div>
+    <div class="block-body">
+      <div class="chart-wrap" style="height:300px;">
+        <canvas id="chart-mnt" role="img" aria-label="Processos de manutenção por embarcação na revisão atual">BRAM TITAN 4, SANTOS SCOUT 5, outros.</canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPERAÇÕES -->
+  <div class="section-label">Operações — evolução detalhada</div>
+
+  <div class="arrow-block">
+    <div class="ab-side">
+      <div class="ab-label">Sem. Anterior</div>
+      <div class="ab-num" style="color:#3a5278;">56</div>
+      <div class="ab-sub">R$ 818.022</div>
+    </div>
+    <div class="ab-arrow">→</div>
+    <div class="ab-side">
+      <div class="ab-label">Rev 1 — Atual</div>
+      <div class="ab-num green">17</div>
+      <div class="ab-sub">R$ 198.822</div>
+    </div>
+    <div class="ab-result">
+      <div class="ab-change green">▼ 39 processos</div>
+      <div class="ab-change-sub">redução de 69% no período</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="block">
+      <div class="block-header" style="color:#27ae60;"><i class="ti ti-circle-plus" aria-hidden="true"></i><span class="block-title">5 novas entradas esta semana</span></div>
+      <div class="block-body">
+        <div class="item-list">
+          <div class="item">
+            <div class="item-left"><span class="item-emb">BUCCANNER</span><span class="item-prop">BBC.055.2025 · 08/04/2025</span></div>
+            <div class="item-val amber">R$ 21.876</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">BUCCANNER</span><span class="item-prop">BBC.067.2025 · 10/04/2025</span></div>
+            <div class="item-val amber">R$ 31.014</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">BUCCANNER</span><span class="item-prop">BBC.068.2025 · 11/04/2025</span></div>
+            <div class="item-val amber">R$ 8.336</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">C AGRESSOR</span><span class="item-prop">CAG.001.2025 · 10/04/2025</span></div>
+            <div class="item-val amber">R$ 19.937</div>
+          </div>
+          <div class="item">
+            <div class="item-left"><span class="item-emb">ISLAND INTERVENTION</span><span class="item-prop">BII.032.2026 · 26/02/2026</span></div>
+            <div class="item-val amber">R$ 8.445</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px solid rgba(0,0,0,0.06);font-size:12px;color:#8a9ab0;">Total em aberto: <strong class="amber">R$ 89.608</strong></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-header" style="color:#27ae60;"><i class="ti ti-chart-pie" aria-hidden="true"></i><span class="block-title">Processos mantidos por embarcação</span></div>
+      <div class="block-body">
+        <div class="bar-label-row"><span>C ACCLAIM</span><span>3 · R$ 34.529</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;background:#1e88e5;"></div></div>
+        <div class="bar-label-row"><span>BUCCANNER</span><span>3 · R$ 61.226</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:90%;background:#27ae60;"></div></div>
+        <div class="bar-label-row"><span>ISLAND INTERVENTION</span><span>2 · R$ 12.435</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:40%;background:#f59e0b;"></div></div>
+        <div class="bar-label-row"><span>CAMPOS CHALLENGER</span><span>1 · R$ 15.680</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:45%;background:#7b61ff;"></div></div>
+        <div class="bar-label-row"><span>SANTOS SOLUTION</span><span>1 · R$ 14.235</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:42%;background:#e53935;"></div></div>
+        <div class="bar-label-row"><span>Demais</span><span>7 processos</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%;background:#8a9ab0;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART OPS -->
+  <div class="block" style="margin-bottom:20px;">
+    <div class="block-header" style="color:#27ae60;"><i class="ti ti-chart-bar" aria-hidden="true"></i><span class="block-title">Operações — processos por embarcação (Rev 1)</span></div>
+    <div class="block-body">
+      <div class="chart-wrap" style="height:280px;">
+        <canvas id="chart-ops" role="img" aria-label="Processos de operações por embarcação na revisão atual">C ACCLAIM 3, BUCCANNER 3, Island Intervention 2, outros.</canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const BLUE_PREV = '#3a5278';
+const BLUE_CUR = '#1e88e5';
+const GREEN = '#27ae60';
+
+new Chart(document.getElementById('chart-geral'),{
+  type:'bar',
+  data:{
+    labels:['Manutenção','Operações'],
+    datasets:[
+      {label:'Sem. Anterior',data:[32,56],backgroundColor:BLUE_PREV,borderRadius:6,barPercentage:0.5},
+      {label:'Rev 1 (Atual)',data:[28,17],backgroundColor:BLUE_CUR,borderRadius:6,barPercentage:0.5}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false},ticks:{color:'#8a9ab0',font:{size:13}}},
+      y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{color:'#8a9ab0',font:{size:12}},min:0,max:70}
+    }
+  }
+});
+
+new Chart(document.getElementById('chart-mnt'),{
+  type:'bar',
+  data:{
+    labels:['SANTOS SCOUT','BRAM TITAN','BRAM ATLAS','BUSHBUCK','ISLAND INTERV.','KIRT CHOUEST','WILDEBEEST','Outros'],
+    datasets:[{
+      label:'Processos',
+      data:[5,4,2,2,1,1,1,12],
+      backgroundColor:BLUE_CUR,
+      borderRadius:5
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{color:'#8a9ab0',font:{size:11}},min:0,max:14},
+      y:{grid:{display:false},ticks:{color:'#546e7a',font:{size:11}}}
+    }
+  }
+});
+
+new Chart(document.getElementById('chart-ops'),{
+  type:'bar',
+  data:{
+    labels:['C ACCLAIM','BUCCANNER','ISLAND INTERV.','CAMPOS CHALL.','SANTOS SOLUT.','BRAM HERO','CORCOVADO','Outros'],
+    datasets:[{
+      label:'Processos',
+      data:[3,3,2,1,1,1,1,5],
+      backgroundColor:GREEN,
+      borderRadius:5
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{color:'#8a9ab0',font:{size:11}},min:0,max:6},
+      y:{grid:{display:false},ticks:{color:'#546e7a',font:{size:11}}}
+    }
+  }
+});
+</script>
+</body>
+</html>
